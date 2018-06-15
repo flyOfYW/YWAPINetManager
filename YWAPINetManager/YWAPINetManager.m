@@ -1,5 +1,5 @@
 //
-//  YWAPIBaseManager.m
+//  YWAPINetManager.m
 //  YKX1.0
 //
 //  Created by yaowei on 2018/3/23.
@@ -17,8 +17,8 @@
 /** 是否正在加载数据,防止重复请求（网络请求比较耗电，这样处理可以实现一点电量优化） */
 @property (nonatomic, assign, readwrite) BOOL isLoading;
 
-@property (nonatomic, strong, nullable) void (^successBlock)(YWAPIBaseManager *apimanager);
-@property (nonatomic, strong, nullable) void (^failBlock)(YWAPIBaseManager *apimanager);
+@property (nonatomic, strong, nullable) void (^successBlock)(YWAPINetManager *apimanager);
+@property (nonatomic, strong, nullable) void (^failBlock)(YWAPINetManager *apimanager);
 @end
 
 
@@ -54,10 +54,10 @@
  @param failCallback 失败的回调
  @return 网络请求任务id
  */
-+ (NSInteger)loadDataWithParams:(NSDictionary *)params success:(void (^)(YWAPIBaseManager *))successCallback fail:(void (^)(YWAPIBaseManager *))failCallback{
++ (NSInteger)loadDataWithParams:(NSDictionary *)params success:(void (^)(YWAPINetManager *))successCallback fail:(void (^)(YWAPINetManager *))failCallback{
     return [[[self alloc] init] loadDataWithParams:params success:successCallback fail:failCallback];
 }
-- (NSInteger)loadDataWithParams:(NSDictionary *)params success:(void (^)(YWAPIBaseManager *))successCallback fail:(void (^)(YWAPIBaseManager *))failCallback
+- (NSInteger)loadDataWithParams:(NSDictionary *)params success:(void (^)(YWAPINetManager *))successCallback fail:(void (^)(YWAPINetManager *))failCallback
 {
     self.successBlock = successCallback;
     self.failBlock = failCallback;

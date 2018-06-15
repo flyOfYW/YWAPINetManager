@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class YWAPIBaseManager;
+@class YWAPINetManager;
 
 
 typedef NS_ENUM(NSUInteger, YWURLResponseStatus)
 {
-    YWURLResponseStatusSuccess = 0, //作为底层，请求是否成功只考虑是否成功收到服务器反馈。至于签名是否正确，返回的数据是否完整，由上层的YWAPIBaseManager来决定。
+    YWURLResponseStatusSuccess = 0, //作为底层，请求是否成功只考虑是否成功收到服务器反馈。至于签名是否正确，返回的数据是否完整，由上层的YWAPINetManager来决定。
     YWURLResponseStatusErrorTimeout,// 取消请求超时
     YWURLResponseStatusErrorCancel,// 取消请求任务
     YWURLResponseStatusErrorNoNetwork, // 无网络错误
@@ -58,19 +58,19 @@ typedef enum : NSUInteger {
  
  @param manager YWNetResponse对象
  */
-- (void)networkingCallAPIDidSuccess:(YWAPIBaseManager * _Nonnull)manager;
+- (void)networkingCallAPIDidSuccess:(YWAPINetManager * _Nonnull)manager;
 /**
  网络请求失败
  
  @param manager YWNetResponse对象
  */
-- (void)networkingCallAPIDidFailed:(YWAPIBaseManager * _Nonnull)manager;
+- (void)networkingCallAPIDidFailed:(YWAPINetManager * _Nonnull)manager;
 @end
 
 //参数数据源协议
 @protocol YWNetworkingParamDataSource <NSObject>
 @required
-- (NSDictionary *_Nullable)paramsForApi:(YWAPIBaseManager *_Nonnull)manager;
+- (NSDictionary *_Nullable)paramsForApi:(YWAPINetManager *_Nonnull)manager;
 
 @end
 //设置请求头参数的协议

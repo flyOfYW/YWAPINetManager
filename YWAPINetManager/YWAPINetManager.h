@@ -1,5 +1,5 @@
 //
-//  YWAPIBaseManager.h
+//  YWAPINetManager.h
 //  YKX1.0
 //
 //  Created by yaowei on 2018/3/23.
@@ -42,7 +42,7 @@ typedef enum : NSUInteger {
  @param failCallback 失败的回调
  @return 网络请求任务id
  */
-+ (NSInteger)loadDataWithParams:(NSDictionary *_Nullable)params success:(void (^_Nullable)(YWAPIBaseManager *_Nullable))successCallback fail:(void (^_Nullable)(YWAPIBaseManager *_Nullable))failCallback;
++ (NSInteger)loadDataWithParams:(NSDictionary *_Nullable)params success:(void (^_Nullable)(YWAPINetManager *_Nullable))successCallback fail:(void (^_Nullable)(YWAPINetManager *_Nullable))failCallback;
 /**
  对象方法调用网络请求
  
