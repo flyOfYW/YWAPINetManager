@@ -15,7 +15,7 @@ typedef enum : NSUInteger {
 } YWAPIBaseManagerCallType;
 
 
-@interface YWAPIBaseManager : NSObject<NSCopying>
+@interface YWAPINetManager : NSObject<NSCopying>
 
 /** ⚠️网络请求成功或者失败时，以什么样的形式通知界面,默认YWAPIBaseManagerCallTypeDelegate，请实现协议回调，以类方法调用网络请求时，是YWAPIBaseManagerCallTypeBlock回调 */
 @property (nonatomic, assign,) YWAPIBaseManagerCallType callType;

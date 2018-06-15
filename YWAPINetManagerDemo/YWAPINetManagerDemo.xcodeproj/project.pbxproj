@@ -18,7 +18,7 @@
 		DA079AE020D24BB30022E723 /* YWAPINetManagerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA079ADF20D24BB30022E723 /* YWAPINetManagerDemoUITests.m */; };
 		DA079AF020D24E300022E723 /* YWURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = DA079AEF20D24E300022E723 /* YWURLResponse.m */; };
 		DA079AF420D252810022E723 /* YWAPIProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA079AF220D252810022E723 /* YWAPIProxy.m */; };
-		DA079AF720D254080022E723 /* YWAPIBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA079AF520D254080022E723 /* YWAPIBaseManager.m */; };
+		DA079AF720D254080022E723 /* YWAPINetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA079AF520D254080022E723 /* YWAPINetManager.m */; };
 		DA079AFB20D2581B0022E723 /* YWBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = DA079AF920D2581A0022E723 /* YWBaseService.m */; };
 		DA079AFE20D25AB90022E723 /* YWServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DA079AFC20D25AB80022E723 /* YWServiceFactory.m */; };
 		DA079B0220D26E7C0022E723 /* YWTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA079B0120D26E7C0022E723 /* YWTestManager.m */; };
@@ -65,8 +65,8 @@
 		DA079AEF20D24E300022E723 /* YWURLResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YWURLResponse.m; sourceTree = "<group>"; };
 		DA079AF220D252810022E723 /* YWAPIProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWAPIProxy.m; sourceTree = "<group>"; };
 		DA079AF320D252810022E723 /* YWAPIProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWAPIProxy.h; sourceTree = "<group>"; };
-		DA079AF520D254080022E723 /* YWAPIBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWAPIBaseManager.m; sourceTree = "<group>"; };
-		DA079AF620D254080022E723 /* YWAPIBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWAPIBaseManager.h; sourceTree = "<group>"; };
+		DA079AF520D254080022E723 /* YWAPINetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWAPINetManager.m; sourceTree = "<group>"; };
+		DA079AF620D254080022E723 /* YWAPINetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWAPINetManager.h; sourceTree = "<group>"; };
 		DA079AF820D2581A0022E723 /* YWServiceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWServiceProtocol.h; sourceTree = "<group>"; };
 		DA079AF920D2581A0022E723 /* YWBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWBaseService.m; sourceTree = "<group>"; };
 		DA079AFA20D2581A0022E723 /* YWBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWBaseService.h; sourceTree = "<group>"; };
@@ -192,8 +192,8 @@
 				DA079AFA20D2581A0022E723 /* YWBaseService.h */,
 				DA079AF920D2581A0022E723 /* YWBaseService.m */,
 				DA079AF820D2581A0022E723 /* YWServiceProtocol.h */,
-				DA079AF620D254080022E723 /* YWAPIBaseManager.h */,
-				DA079AF520D254080022E723 /* YWAPIBaseManager.m */,
+				DA079AF620D254080022E723 /* YWAPINetManager.h */,
+				DA079AF520D254080022E723 /* YWAPINetManager.m */,
 				DA079AF320D252810022E723 /* YWAPIProxy.h */,
 				DA079AF220D252810022E723 /* YWAPIProxy.m */,
 				DA079AEE20D24E300022E723 /* YWURLResponse.h */,
@@ -368,7 +368,7 @@
 				DA079AFB20D2581B0022E723 /* YWBaseService.m in Sources */,
 				DA079AFE20D25AB90022E723 /* YWServiceFactory.m in Sources */,
 				DA079B0220D26E7C0022E723 /* YWTestManager.m in Sources */,
-				DA079AF720D254080022E723 /* YWAPIBaseManager.m in Sources */,
+				DA079AF720D254080022E723 /* YWAPINetManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

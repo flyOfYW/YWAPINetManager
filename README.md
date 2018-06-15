@@ -26,11 +26,11 @@ pod 'YWAPINetManager'
 - 设计合理的继承机制，让派生出来的YWAPIBaseManager受到限制，避免混乱
 
 ## 使用
-- **1**：继承YWAPIBaseManager，并遵守协议YWNetworkingProtocol
+- **1**：继承YWAPINetManager，并遵守协议YWNetworkingProtocol
 
     - **示列**：
         
-            @interface YWTestManager : YWAPIBaseManager <YWNetworkingProtocol>
+            @interface YWTestManager : YWAPINetManager <YWNetworkingProtocol>
 
             @end
         
@@ -56,28 +56,28 @@ pod 'YWAPINetManager'
         [_manager sendOnLoadData];
 
         //设置参数
-        - (NSDictionary *)paramsForApi:(YWAPIBaseManager *)manager{
+        - (NSDictionary *)paramsForApi:(YWAPINetManager *)manager{
 
         return nil;
 
         }
         //失败回调
-        - (void)networkingCallAPIDidFailed:(YWAPIBaseManager *)manager{
+        - (void)networkingCallAPIDidFailed:(YWAPINetManager *)manager{
         
         NSLog(@"错误-------\n%@",manager.response.errorMessage);
         
         }
         //成功回调
-        - (void)networkingCallAPIDidSuccess:(YWAPIBaseManager *)manager{
+        - (void)networkingCallAPIDidSuccess:(YWAPINetManager *)manager{
         
         NSLog(@"成功---------\n%@",manager.response.content);
         }
         
 - **3.2**：发送请求和block回调(方式二)
 
-        [YWTestManager loadDataWithParams:nil success:^(YWAPIBaseManager * _Nullable manager) {
+        [YWTestManager loadDataWithParams:nil success:^(YWAPINetManager * _Nullable manager) {
 
-            } fail:^(YWAPIBaseManager * _Nullable manager) {
+            } fail:^(YWAPINetManager * _Nullable manager) {
 
         }];
 

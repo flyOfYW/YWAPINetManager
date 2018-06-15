@@ -25,9 +25,9 @@
     [self.manager sendOnLoadData];
     
   //方式二
-//    [YWTestManager loadDataWithParams:@{} success:^(YWAPIBaseManager * _Nullable manager) {
+//    [YWTestManager loadDataWithParams:@{} success:^(YWAPINetManager * _Nullable manager) {
 //
-//    } fail:^(YWAPIBaseManager * _Nullable manager) {
+//    } fail:^(YWAPINetManager * _Nullable manager) {
 //
 //    }];
     
@@ -35,18 +35,18 @@
 }
 
 //失败回调
-- (void)networkingCallAPIDidFailed:(YWAPIBaseManager *)manager{
+- (void)networkingCallAPIDidFailed:(YWAPINetManager *)manager{
     
     NSLog(@"错误-------\n%@",manager.response.errorMessage);
     
 }
 //成功回调
-- (void)networkingCallAPIDidSuccess:(YWAPIBaseManager *)manager{
+- (void)networkingCallAPIDidSuccess:(YWAPINetManager *)manager{
     
     NSLog(@"成功---------\n%@",manager.response.content);
 }
 //设置参数
-- (NSDictionary *)paramsForApi:(YWAPIBaseManager *)manager{
+- (NSDictionary *)paramsForApi:(YWAPINetManager *)manager{
     
     return nil;
     

@@ -6,11 +6,11 @@
 //  Copyright © 2018年 yaowei. All rights reserved.
 //
 
-#import "YWAPIBaseManager.h"
+#import "YWAPINetManager.h"
 #import "YWServiceFactory.h"
 #import "YWAPIProxy.h"
 
-@interface YWAPIBaseManager ()
+@interface YWAPINetManager ()
 
 @property (nonatomic, strong) NSMutableArray * requestIdList;
 
@@ -22,7 +22,7 @@
 @end
 
 
-@implementation YWAPIBaseManager
+@implementation YWAPINetManager
 
 - (instancetype)init
 {

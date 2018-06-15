@@ -6,8 +6,8 @@
 //  Copyright © 2018年 yaowei. All rights reserved.
 //
 
-#import "YWAPIBaseManager.h"
+#import "YWAPINetManager.h"
 
-@interface YWTestManager : YWAPIBaseManager <YWNetworkingProtocol>
+@interface YWTestManager : YWAPINetManager <YWNetworkingProtocol>
 
 @end
