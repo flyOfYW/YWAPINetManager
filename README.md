@@ -12,7 +12,7 @@
 YWAPINetManager 可以在[CocoaPods](http://cocoapods.org)中获取，将以下内容添加进你的Podfile中后，运行`pod install`即可安装:
 
 ```ruby
-pod "YWAPINetManager"
+pod 'YWAPINetManager'
 ```
 ## 特性
 - 提供支持集约型API调用方式和离散型API调用方式
