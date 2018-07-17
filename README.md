@@ -84,6 +84,7 @@ pod 'YWAPINetManager'
         
           
 - **3.3**：接口统一处理协议
+```
 /**
  * 进行容错处理协议
  * 业务场景：
@@ -112,7 +113,7 @@ pod 'YWAPINetManager'
 - (id _Nullable )networkingDidFailedDealWith:(YWURLResponse *_Nullable)response withRespone:(NSURLResponse *_Nullable)urlResponse;
 
 @end
-        
+   ```    
   
 
 
