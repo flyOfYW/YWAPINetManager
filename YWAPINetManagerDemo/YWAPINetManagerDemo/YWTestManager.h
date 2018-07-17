@@ -9,5 +9,5 @@
 #import "YWAPINetManager.h"
 
 @interface YWTestManager : YWAPINetManager <YWNetworkingProtocol>
-
+@property (nonatomic, copy) NSString *getUrl;
 @end

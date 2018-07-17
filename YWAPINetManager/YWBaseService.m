@@ -60,8 +60,7 @@
 
     NSError *serializationError = nil;
 
-    
-    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:urlString parameters:params error:&serializationError];
+    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] parameters:params error:&serializationError];
     
     if (serializationError) {
         NSLog(@"不能初始化request");

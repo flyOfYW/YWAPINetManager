@@ -11,12 +11,10 @@
 @interface YWURLResponse ()
 
 @property (nonatomic, assign, readwrite) YWURLResponseStatus status;
-@property (nonatomic, copy,   readwrite) id content;
 @property (nonatomic, copy,   readwrite) NSURLRequest *request;
 @property (nonatomic, strong, readwrite) NSNumber *requestId;
 @property (nonatomic, copy,   readwrite) NSData *responseData;
 @property (nonatomic, strong, readwrite) NSString *errorMessage;
-@property (nonatomic, assign, readwrite) int code;
 /** 将网络请求返回的NSError的错误代码代表的信息转译中文信息 */
 @property (nonatomic, strong, readwrite) NSString *errorDetailMsg;
 

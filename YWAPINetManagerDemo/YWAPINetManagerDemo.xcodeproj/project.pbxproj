@@ -23,6 +23,8 @@
 		DA079AFE20D25AB90022E723 /* YWServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DA079AFC20D25AB80022E723 /* YWServiceFactory.m */; };
 		DA079B0220D26E7C0022E723 /* YWTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA079B0120D26E7C0022E723 /* YWTestManager.m */; };
 		DA079B0520D273000022E723 /* YWTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA079B0420D273000022E723 /* YWTestViewController.m */; };
+		DAAEC7C820FD916100B1094C /* YWConnectErrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAEC7C720FD916000B1094C /* YWConnectErrManager.m */; };
+		DAAEC7CB20FD9D6900B1094C /* YWTestErrConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAEC7CA20FD9D6900B1094C /* YWTestErrConnectViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,10 @@
 		DA079B0120D26E7C0022E723 /* YWTestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YWTestManager.m; sourceTree = "<group>"; };
 		DA079B0320D273000022E723 /* YWTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YWTestViewController.h; sourceTree = "<group>"; };
 		DA079B0420D273000022E723 /* YWTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YWTestViewController.m; sourceTree = "<group>"; };
+		DAAEC7C620FD916000B1094C /* YWConnectErrManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWConnectErrManager.h; sourceTree = "<group>"; };
+		DAAEC7C720FD916000B1094C /* YWConnectErrManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWConnectErrManager.m; sourceTree = "<group>"; };
+		DAAEC7C920FD9D6900B1094C /* YWTestErrConnectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YWTestErrConnectViewController.h; sourceTree = "<group>"; };
+		DAAEC7CA20FD9D6900B1094C /* YWTestErrConnectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YWTestErrConnectViewController.m; sourceTree = "<group>"; };
 		F81327864352B2BE14A93B5A /* Pods-YWAPINetManagerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YWAPINetManagerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YWAPINetManagerDemo/Pods-YWAPINetManagerDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +161,10 @@
 				DA079ABF20D24BB30022E723 /* ViewController.m */,
 				DA079B0320D273000022E723 /* YWTestViewController.h */,
 				DA079B0420D273000022E723 /* YWTestViewController.m */,
+				DAAEC7C920FD9D6900B1094C /* YWTestErrConnectViewController.h */,
+				DAAEC7CA20FD9D6900B1094C /* YWTestErrConnectViewController.m */,
+				DAAEC7C620FD916000B1094C /* YWConnectErrManager.h */,
+				DAAEC7C720FD916000B1094C /* YWConnectErrManager.m */,
 				DA079B0020D26E7C0022E723 /* YWTestManager.h */,
 				DA079B0120D26E7C0022E723 /* YWTestManager.m */,
 				DA079AC120D24BB30022E723 /* Main.storyboard */,
@@ -365,8 +375,10 @@
 				DA079ACB20D24BB30022E723 /* main.m in Sources */,
 				DA079ABD20D24BB30022E723 /* AppDelegate.m in Sources */,
 				DA079AF420D252810022E723 /* YWAPIProxy.m in Sources */,
+				DAAEC7CB20FD9D6900B1094C /* YWTestErrConnectViewController.m in Sources */,
 				DA079AFB20D2581B0022E723 /* YWBaseService.m in Sources */,
 				DA079AFE20D25AB90022E723 /* YWServiceFactory.m in Sources */,
+				DAAEC7C820FD916100B1094C /* YWConnectErrManager.m in Sources */,
 				DA079B0220D26E7C0022E723 /* YWTestManager.m in Sources */,
 				DA079AF720D254080022E723 /* YWAPINetManager.m in Sources */,
 			);

@@ -24,14 +24,32 @@
 
 @implementation YWAPINetManager
 
+- (instancetype)initWithConnectErrManager:(id<YWNetworkingConnectProtocol>)errManager{
+    self = [super init];
+    if (self) {
+        _delegate = nil;
+        _callType = YWAPIBaseManagerCallTypeDelegate;
+        if ([errManager conformsToProtocol:@protocol(YWNetworkingConnectProtocol)]) {
+            self.errConnectManager = errManager;
+        } else {
+            NSException *exception = [[NSException alloc] init];
+            @throw exception;
+        }
+        if ([self conformsToProtocol:@protocol(YWNetworkingProtocol)]) {
+            self.child = (id <YWNetworkingProtocol>)self;
+        } else {
+            NSException *exception = [[NSException alloc] init];
+            @throw exception;
+        }
+    }
+    return self;
+}
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         _delegate = nil;
-        
         _callType = YWAPIBaseManagerCallTypeDelegate;
-        
         if ([self conformsToProtocol:@protocol(YWNetworkingProtocol)]) {
             self.child = (id <YWNetworkingProtocol>)self;
         } else {
@@ -88,13 +106,6 @@
 //    YWBaseService -- requestSerializer修改请求头
     id<YWServiceProtocol>serviceProtocol = [[YWServiceFactory singletonInstance] serviceWithIdentifier:self.child.urlString];
     
-//    if ([self.requestSerializerDelegate respondsToSelector:@selector(clearHTTPRequestSerializerForApi)]) {
-//       NSArray *arr = [self.requestSerializerDelegate clearHTTPRequestSerializerForApi];
-//        for (NSString *key in arr) {
-//            [[serviceProtocol httpRequestSerializer] setValue:nil forHTTPHeaderField:key];
-//        }
-//    }
-    
     if ([self.requestSerializerDelegate respondsToSelector:@selector(HTTPRequestSerializerForApi)]) {
         NSDictionary *dict = [self.requestSerializerDelegate HTTPRequestSerializerForApi];
         for (NSString *key in dict.allKeys) {
@@ -106,11 +117,11 @@
    NSURLRequest *request = [serviceProtocol requestWithParams:params urlString:self.child.urlString requestMethod:self.child.requestMethod];
     
     __weak typeof(self)weakSelf = self;
-
-   NSNumber *requestId = [[YWAPIProxy YWAPIProxySingletonInstance] sendWithRequest:request successBlock:^(YWURLResponse *response) {
-       [weakSelf successedHandle:response];
-    } failBlock:^(YWURLResponse *response) {
-        [weakSelf failedHandle:response];
+    
+   NSNumber *requestId = [[YWAPIProxy YWAPIProxySingletonInstance] sendWithRequest:request successBlock:^(YWURLResponse *response, NSURLResponse *urlResponse) {
+        [weakSelf successedHandle:response withRespone:urlResponse];
+    } failBlock:^(YWURLResponse *response, NSURLResponse *urlResponse) {
+        [weakSelf failedHandle:response withRespone:urlResponse];
     }];
     
     [self.requestIdList addObject:requestId];
@@ -119,10 +130,16 @@
     
 }
 
-- (void)successedHandle:(YWURLResponse *)response{
+- (void)successedHandle:(YWURLResponse *)response withRespone:(NSURLResponse *)urlResponse{
     
-    self.isLoading = NO;
     self.response = response;
+    
+    if (self.errConnectManager) {
+       id content = [self.errConnectManager networkingDidSuccessDealWith:response withRespone:urlResponse];
+        self.response = response;
+        self.response.content = content;
+    }
+    self.isLoading = NO;
 
     [self removeRequestIdWithRequestID:response.requestId];
     
@@ -141,26 +158,18 @@
     
 }
 
-- (void)failedHandle:(YWURLResponse *)response {
+- (void)failedHandle:(YWURLResponse *)response withRespone:(NSURLResponse *)urlResponse{
     
     self.isLoading = NO;
     if (response) {
         self.response = response;
     }
+    if (self.errConnectManager) {
+     [self.errConnectManager networkingDidFailedDealWith:response withRespone:urlResponse];
+    }
     
     [self removeRequestIdWithRequestID:response.requestId];
     
-    
-    // 其他错误，根据需求处理:如
-
-//    // user token 无效，重新登录
-//    if (response.status == YWURLResponseStatusErrorNeedAccessToken) {
-//      //可用发通知，去跳转到登录
-//
-//        return;
-//    }
-//
-
     
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.callType == YWAPIBaseManagerCallTypeDelegate) {

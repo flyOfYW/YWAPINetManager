@@ -12,8 +12,8 @@
 @interface YWURLResponse : NSObject
 
 @property (nonatomic, assign, readonly) YWURLResponseStatus status;
-@property (nonatomic, copy,   readonly) id content;
-@property (nonatomic, assign, readonly) int code;
+@property (nonatomic, copy            ) id content;
+@property (nonatomic, assign          ) NSInteger code;
 @property (nonatomic, strong, readonly) NSNumber *requestId;
 @property (nonatomic, copy,   readonly) NSURLRequest *request;
 @property (nonatomic, copy,   readonly) NSData *responseData;

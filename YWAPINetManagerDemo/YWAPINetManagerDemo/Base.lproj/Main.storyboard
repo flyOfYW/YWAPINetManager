@@ -33,11 +33,20 @@
                                     <segue destination="vdK-O8-gcR" kind="push" id="mPx-ba-2WR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJv-XK-TLG">
+                                <rect key="frame" x="103" y="385.5" width="169" height="30"/>
+                                <state key="normal" title="对返回结果进行再次处理"/>
+                                <connections>
+                                    <segue destination="2CM-eu-0lo" kind="push" id="sTW-ce-LsV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Yuf-A9-Zhm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="IF5-Fg-8ge"/>
                             <constraint firstItem="Yuf-A9-Zhm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VXG-B9-3ce"/>
+                            <constraint firstItem="KJv-XK-TLG" firstAttribute="centerX" secondItem="Yuf-A9-Zhm" secondAttribute="centerX" id="s7h-qJ-bzP"/>
+                            <constraint firstItem="KJv-XK-TLG" firstAttribute="top" secondItem="Yuf-A9-Zhm" secondAttribute="bottom" constant="20" id="tR3-s1-c1S"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ork-qe-LM6"/>
@@ -65,6 +74,25 @@
             </objects>
             <point key="canvasLocation" x="1050" y="-67"/>
         </scene>
+        <!--Test Err Connect View Controller-->
+        <scene sceneID="NWA-6K-6QZ">
+            <objects>
+                <viewController id="2CM-eu-0lo" customClass="YWTestErrConnectViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CM8-Cu-THi"/>
+                        <viewControllerLayoutGuide type="bottom" id="cE0-nW-4Y1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dRP-fq-pO7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ykX-8C-ehm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KMU-UK-waR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="614" y="672"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="5W8-Wn-9hz">
             <objects>
@@ -79,7 +107,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2F-r9-w7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-140" y="159"/>
+            <point key="canvasLocation" x="-921" y="210"/>
         </scene>
     </scenes>
 </document>

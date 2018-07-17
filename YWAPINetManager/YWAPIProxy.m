@@ -76,9 +76,9 @@ static YWAPIProxy *singletonInstance = nil;
        
        YWURLResponse *ywResponse = [[YWURLResponse alloc] initWithResponseObject:responseObject requestId:requestID request:request error:error];
        if (error) {
-           fail?fail(ywResponse):nil;
+           fail?fail(ywResponse,response):nil;
        } else {
-           success?success(ywResponse):nil;
+           success?success(ywResponse,nil):nil;
        }
     }];
     

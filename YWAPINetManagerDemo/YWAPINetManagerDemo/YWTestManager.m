@@ -11,7 +11,7 @@
 @implementation YWTestManager
 
 - (NSString *)urlString{
-    return @"https://route.showapi.com/255-1?showapi_appid=45178&showapi_sign=1bc67a7c980a4a5d86f1f0d9424a023e&type=";
+    return _getUrl;
 }
 - (YWAPIManagerRequestMethod)requestMethod{
    return YWAPIManagerRequestMethodGet;

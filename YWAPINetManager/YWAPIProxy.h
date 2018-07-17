@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "YWURLResponse.h"
 
-typedef void(^YWAPIProxyCallBlock)(YWURLResponse *response);
+typedef void(^YWAPIProxyCallBlock)(YWURLResponse *response,NSURLResponse *urlResponse);
 
 @interface YWAPIProxy : NSObject
 /**

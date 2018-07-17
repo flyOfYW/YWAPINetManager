@@ -34,6 +34,10 @@ typedef enum : NSUInteger {
 /** 是否正在加载数据 */
 @property (nonatomic, assign, readonly) BOOL isLoading;
 
+/** v0.0.4新增容错处理，兼容之前的版本 */
+@property (nonatomic,   strong) NSObject<YWNetworkingConnectProtocol> * _Nullable errConnectManager;
+
+- (instancetype _Nullable )initWithConnectErrManager:(id <YWNetworkingConnectProtocol>)errManager;
 /**
  类方法调用网络请求
  
