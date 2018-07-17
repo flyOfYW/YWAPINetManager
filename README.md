@@ -24,6 +24,7 @@ pod 'YWAPINetManager'
 - 方便管理每个网络请求API
 - 网络层上部分使用离散型设计，下部分使用集约型设计
 - 设计合理的继承机制，让派生出来的YWAPIBaseManager受到限制，避免混乱
+- 设计统一的接口协议处理请求结果数据
 
 ## 使用
 - **1**：继承YWAPINetManager，并遵守协议YWNetworkingProtocol
@@ -80,6 +81,39 @@ pod 'YWAPINetManager'
             } fail:^(YWAPINetManager * _Nullable manager) {
 
         }];
+        
+          
+- **3.3**：接口统一处理协议
+/**
+ * 进行容错处理协议
+ * 业务场景：
+ * 如：1、登录token失效，在遵守该协议的类统一处理登录事件或者刷新token
+ *    2、后台进行error的处理，返回给手机端code或者status代表成功和失败，因此也可以进行统一事件处理
+ */
+@protocol YWNetworkingConnectProtocol <NSObject>
+@required
+/**
+ 处理网络请求成功的数据（如处理后台返回的code或者status的某个值作为请求请求成功的代表,因此YWURLResponse特意开放code属性给外界，以便接收后台返回的状态）
+ response.status==YWURLResponseStatusSuccess//作为底层，请求是否成功只考虑是否成功收到服务器反馈。至于签名是否正确，返回的数据是否完整，由上层的YWAPINetManager来决定。
+ 因此,实现该方法，可以统一处理数据是否完整性，从而剥离每个上层的YWAPINetManager来处理
+ @param response 网络请求成功后的数据对象
+ @param urlResponse 网络请求本身block的response，可以选择性处理
+ @return 返回response.content的值（必须返回），
+ */
+- (id _Nullable )networkingDidSuccessDealWith:(YWURLResponse *_Nullable)response withRespone:(NSURLResponse *_Nullable)urlResponse;
+/**
+ 处理网络请求失败的数据（如处理NSURLResponse的状态（statusCode））
+ 之前我在一家公司，遇到一个比较奇葩的处理 ：NSHTTPURLResponse *ta = (NSHTTPURLResponse *)urlResponse; if (ta.statusCode == 401) {//刷新token}，要去取NSURLResponse里的状态判断token是否失效，后台没有对异常信息处理，因此该方法针对特殊情况处理
+ 因此,实现该方法，可以统一处理数据是否完整性，从而剥离每个上层的YWAPINetManager来处理
+ @param response 网络请求失败后的数据对象
+ @param urlResponse 网络请求本身block的response，可以选择性处理
+ @return 返回nil(暂时未使用到改值)
+ */
+- (id _Nullable )networkingDidFailedDealWith:(YWURLResponse *_Nullable)response withRespone:(NSURLResponse *_Nullable)urlResponse;
+
+@end
+        
+  
 
 
 更多详细使用，请查看[demo](https://codeload.github.com/flyOfYW/YWAPINetManager/zip/master)
