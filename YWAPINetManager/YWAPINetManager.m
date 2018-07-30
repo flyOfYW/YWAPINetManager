@@ -81,7 +81,7 @@
     self.failBlock = failCallback;
     //默认block形式
     self.callType = YWAPIBaseManagerCallTypeBlock;
-    return [self loadDataWithParams:params];
+    return [self loadDataWithParams:params isBodyParam:NO];
 }
 
 /**
@@ -94,11 +94,23 @@
         NSLog(@"self.paramSource不存在");
     }
     NSDictionary *params = [self.paramSource paramsForApi:self];
-    NSInteger requestId = [self loadDataWithParams:params];
+    NSInteger requestId = [self loadDataWithParams:params isBodyParam:NO];
     return requestId;
 }
-
-- (NSInteger)loadDataWithParams:(NSDictionary *)params{
+/**
+ 对象方法调用网络请求(专门解决POST-RAW传输参数)
+ 
+ @return 网络请求任务id
+ */
+- (NSInteger)sendOnLoadDataByParamOnBody{
+    if (!self.paramSource) {
+        NSLog(@"self.paramSource不存在");
+    }
+    NSDictionary *params = [self.paramSource paramsForApi:self];
+    NSInteger requestId = [self loadDataWithParams:params isBodyParam:YES];
+    return requestId;
+}
+- (NSInteger)loadDataWithParams:(NSDictionary *)params isBodyParam:(BOOL)isBody{
 
     //设置正在加载
     self.isLoading = YES;
@@ -112,9 +124,12 @@
             [[serviceProtocol httpRequestSerializer] setValue:dict[key] forHTTPHeaderField:key];
         }
     }
-    
-    
-   NSURLRequest *request = [serviceProtocol requestWithParams:params urlString:self.child.urlString requestMethod:self.child.requestMethod];
+    NSURLRequest *request;
+    if (isBody) {
+        request = [serviceProtocol requestWithBodyParams:params urlString:self.child.urlString requestMethod:self.child.requestMethod];
+    }else{
+        request = [serviceProtocol requestWithParams:params urlString:self.child.urlString requestMethod:self.child.requestMethod];
+    }
     
     __weak typeof(self)weakSelf = self;
     

@@ -10,4 +10,6 @@
 
 @interface YWTestManager : YWAPINetManager <YWNetworkingProtocol>
 @property (nonatomic, copy) NSString *getUrl;
+@property (nonatomic, assign) YWAPIManagerRequestMethod method;
+
 @end

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "YWAPINetManager"
-  s.version      = "0.0.4"
+  s.version      = "1.0.0"
   s.summary      = "基于AFNetworking的高阶网络请求管理器，使用方便"
 
   # This description is used to generate tags and improve search results.

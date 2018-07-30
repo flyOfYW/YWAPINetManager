@@ -64,6 +64,7 @@
         _manager.paramSource = self;
         _manager.delegate = self;
         _manager.getUrl = @"https://www.sojson.com/open/api/weather/json.shtml?city=广州";
+        _manager.method = YWAPIManagerRequestMethodGet;
     }
     return _manager;
 }

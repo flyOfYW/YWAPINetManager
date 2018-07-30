@@ -53,6 +53,13 @@ typedef enum : NSUInteger {
  @return 网络请求任务id
  */
 - (NSInteger)sendOnLoadData;
+
+/**
+ 对象方法调用网络请求(专门解决POST-RAW传输参数)
+
+ @return 网络请求任务id
+ */
+- (NSInteger)sendOnLoadDataByParamOnBody;
 /**
  取消当前对象所管理的所有任务的请求
  */

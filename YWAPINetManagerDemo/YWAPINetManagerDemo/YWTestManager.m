@@ -14,7 +14,7 @@
     return _getUrl;
 }
 - (YWAPIManagerRequestMethod)requestMethod{
-   return YWAPIManagerRequestMethodGet;
+   return _method;
 }
 - (void)dealloc{
     NSLog(@"---");

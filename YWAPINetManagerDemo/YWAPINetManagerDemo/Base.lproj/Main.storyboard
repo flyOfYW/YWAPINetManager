@@ -40,11 +40,20 @@
                                     <segue destination="2CM-eu-0lo" kind="push" id="sTW-ce-LsV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tf-Ng-icc">
+                                <rect key="frame" x="98" y="250.5" width="178" height="30"/>
+                                <state key="normal" title="POST(raw-body传输参数)"/>
+                                <connections>
+                                    <segue destination="pA4-bq-zJR" kind="push" id="UaB-GL-dyD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="2Tf-Ng-icc" firstAttribute="centerX" secondItem="Yuf-A9-Zhm" secondAttribute="centerX" id="AHK-Rt-Myj"/>
                             <constraint firstItem="Yuf-A9-Zhm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="IF5-Fg-8ge"/>
                             <constraint firstItem="Yuf-A9-Zhm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VXG-B9-3ce"/>
+                            <constraint firstItem="Yuf-A9-Zhm" firstAttribute="top" secondItem="2Tf-Ng-icc" secondAttribute="bottom" constant="20" id="ZlR-gv-ce5"/>
                             <constraint firstItem="KJv-XK-TLG" firstAttribute="centerX" secondItem="Yuf-A9-Zhm" secondAttribute="centerX" id="s7h-qJ-bzP"/>
                             <constraint firstItem="KJv-XK-TLG" firstAttribute="top" secondItem="Yuf-A9-Zhm" secondAttribute="bottom" constant="20" id="tR3-s1-c1S"/>
                         </constraints>
@@ -54,6 +63,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="422" y="-57"/>
+        </scene>
+        <!--Post Body View Controller-->
+        <scene sceneID="hjg-ti-HnF">
+            <objects>
+                <viewController id="pA4-bq-zJR" customClass="YWPostBodyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jx2-F0-1fa"/>
+                        <viewControllerLayoutGuide type="bottom" id="91a-Q1-sbw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i1b-UG-Dtp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fb-qL-bpq">
+                                <rect key="frame" x="20" y="104" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4Fb-qL-bpq" firstAttribute="leading" secondItem="i1b-UG-Dtp" secondAttribute="leading" constant="20" id="YBd-jA-swz"/>
+                            <constraint firstItem="4Fb-qL-bpq" firstAttribute="top" secondItem="jx2-F0-1fa" secondAttribute="bottom" constant="40" id="mQf-4I-fav"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lDG-6i-KN5"/>
+                    <connections>
+                        <outlet property="menuLabel" destination="4Fb-qL-bpq" id="9mA-4M-C0z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H3o-ac-amW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1257" y="143"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="9l0-kS-Eeg">
@@ -72,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="juS-Uq-jY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1050" y="-67"/>
+            <point key="canvasLocation" x="1210" y="-841"/>
         </scene>
         <!--Test Err Connect View Controller-->
         <scene sceneID="NWA-6K-6QZ">
