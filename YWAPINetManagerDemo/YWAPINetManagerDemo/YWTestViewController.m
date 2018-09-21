@@ -14,6 +14,7 @@
 
 @property (nonatomic, weak) UILabel *menuLabel;
 @property (nonatomic, strong) YWTestManager *manager;
+
 @end
 
 @implementation YWTestViewController
@@ -40,6 +41,7 @@
         la;
     });
 }
+
 
 //失败回调
 - (void)networkingCallAPIDidFailed:(YWAPINetManager *)manager{
