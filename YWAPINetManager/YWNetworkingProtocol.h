@@ -114,6 +114,8 @@ typedef enum : NSUInteger {
  @return 请求头
  */
 - (NSDictionary *_Nullable)HTTPRequestSerializerForApi;
+
+- (NSDictionary *_Nullable)requestSerializerForApi:(YWAPINetManager *_Nonnull)manager;
 ///**
 // 移除请求头（请求头的数组如：@[@"User-Agen",@"Accept"]）
 //

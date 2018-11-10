@@ -124,6 +124,16 @@
             [[serviceProtocol httpRequestSerializer] setValue:dict[key] forHTTPHeaderField:key];
         }
     }
+    
+    if ([self.requestSerializerDelegate respondsToSelector:@selector(requestSerializerForApi:)]) {
+        NSDictionary *dict = [self.requestSerializerDelegate requestSerializerForApi:self];
+        for (NSString *key in dict.allKeys) {
+            [[serviceProtocol httpRequestSerializer] setValue:dict[key] forHTTPHeaderField:key];
+        }
+    }
+    
+    
+    
     NSURLRequest *request;
     if (isBody) {
         request = [serviceProtocol requestWithBodyParams:params urlString:self.child.urlString requestMethod:self.child.requestMethod];

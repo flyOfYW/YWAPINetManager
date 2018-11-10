@@ -9,6 +9,8 @@
 #import <AFNetworking/AFNetworking.h>
 #import "YWAPIProxy.h"
 
+
+
 @interface YWAPIProxy ()
 
 @property (nonatomic, strong) NSMutableDictionary *dispatchTable;
@@ -113,8 +115,6 @@ static YWAPIProxy *singletonInstance = nil;
         _sessionManager.securityPolicy.allowInvalidCertificates = YES;
         _sessionManager.securityPolicy.validatesDomainName = NO;
     }
-    
-    
     return _sessionManager;
 }
 - (NSMutableDictionary *)dispatchTable
