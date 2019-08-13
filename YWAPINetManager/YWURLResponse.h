@@ -21,6 +21,8 @@
 @property (nonatomic, strong, readonly) NSString *errorMessage;
 /** 将网络请求返回的NSError的错误代码代表的信息转译中文信息 */
 @property (nonatomic, strong, readonly) NSString *errorDetailMsg;
+/** 暂时没有用到 */
+@property (nonatomic, copy) NSString *aletMsg;
 
 /**
  初始化YWNetResponse对象
