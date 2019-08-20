@@ -101,7 +101,7 @@ typedef enum : NSUInteger {
 //参数数据源协议
 @protocol YWNetworkingParamDataSource <NSObject>
 @required
-- (NSDictionary *_Nullable)paramsForApi:(YWAPINetManager *_Nonnull)manager;
+- (nullable id)paramsForApi:(YWAPINetManager *_Nonnull)manager;
 
 @end
 //设置请求头参数的协议

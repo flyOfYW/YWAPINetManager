@@ -72,10 +72,10 @@
  @param failCallback 失败的回调
  @return 网络请求任务id
  */
-+ (NSInteger)loadDataWithParams:(NSDictionary *)params success:(void (^)(YWAPINetManager *))successCallback fail:(void (^)(YWAPINetManager *))failCallback{
++ (NSInteger)loadDataWithParams:(id )params success:(void (^)(YWAPINetManager *))successCallback fail:(void (^)(YWAPINetManager *))failCallback{
     return [[[self alloc] init] loadDataWithParams:params success:successCallback fail:failCallback];
 }
-- (NSInteger)loadDataWithParams:(NSDictionary *)params success:(void (^)(YWAPINetManager *))successCallback fail:(void (^)(YWAPINetManager *))failCallback
+- (NSInteger)loadDataWithParams:(id)params success:(void (^)(YWAPINetManager *))successCallback fail:(void (^)(YWAPINetManager *))failCallback
 {
     self.successBlock = successCallback;
     self.failBlock = failCallback;
@@ -93,7 +93,7 @@
     if (!self.paramSource) {
         NSLog(@"self.paramSource不存在");
     }
-    NSDictionary *params = [self.paramSource paramsForApi:self];
+    id params = [self.paramSource paramsForApi:self];
     NSInteger requestId = [self loadDataWithParams:params isBodyParam:NO];
     return requestId;
 }
@@ -106,11 +106,11 @@
     if (!self.paramSource) {
         NSLog(@"self.paramSource不存在");
     }
-    NSDictionary *params = [self.paramSource paramsForApi:self];
+    id params = [self.paramSource paramsForApi:self];
     NSInteger requestId = [self loadDataWithParams:params isBodyParam:YES];
     return requestId;
 }
-- (NSInteger)loadDataWithParams:(NSDictionary *)params isBodyParam:(BOOL)isBody{
+- (NSInteger)loadDataWithParams:(id)params isBodyParam:(BOOL)isBody{
 
     //设置正在加载
     self.isLoading = YES;
